@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
@@ -25,5 +25,12 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Start app
-        run: npm start
+      - name: Build app
+        run: npm run build
+        
+      - name: Start app for test
+        run: |
+          npm start &
+          sleep 5
+          kill $!
+  
