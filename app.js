@@ -1,15 +1,11 @@
-// app.js
 const http = require('http');
-const port = 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello from Node.js via GitHub Actions!\n');
+  res.end('Hello from GitHub Actions!\n');
 });
 
-server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+server.listen(3000, () => {
+  console.log('Server running at http://localhost:3000/');
 });
-
-//this is the trigger for gihub actions
