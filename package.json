@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-demo-ci",
+  "version": "1.0.0",
+  "description": "Node.js demo app for GitHub Actions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Running sample test\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
