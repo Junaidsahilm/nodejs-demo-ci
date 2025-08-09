@@ -1,0 +1,71 @@
+Implementing a Node.js CI/CD Workflow in GitHub Actions (GUI-Only Approach)
+We configured a GitHub Actions pipeline entirely using the GitHub web interface without using the command line, to build, test, and deploy a Node.js application.
+The workflow runs automatically on each code push or pull request to the main branch.
+
+Steps Performed
+1.Repository Setup
+
+Created a new GitHub repository through the GUI.
+
+Added a minimal Node.js sample application (JavaScript + package.json) directly in the GitHub file editor.
+
+2.Workflow Creation
+
+Navigated to Actions tab in the repository.
+
+Chose "Node.js" workflow template from GitHub’s predefined actions.
+
+Customized the workflow YAML file (.github/workflows/nodejs.yml) directly in GitHub.
+
+3.Workflow Configuration
+
+Specified Node.js version.
+
+Configured steps to:
+
+Checkout code from the repository.
+
+Install dependencies with npm install.
+
+Run tests with npm test.
+
+(Optional) Deploy to a hosting environment.
+
+4.Push & Execution
+
+Committed all files to the repository via the GitHub web editor.
+
+Each push triggered the GitHub Actions workflow.
+
+┌─────────────┐
+│  Push Code  │
+└──────┬──────┘
+       │
+       ▼
+┌───────────────────────┐
+│ GitHub Actions Trigger │
+└──────────┬────────────┘
+           │
+           ▼
+┌────────────────────────────┐
+│ Checkout repository code   │
+└──────────┬─────────────────┘
+           │
+           ▼
+┌────────────────────────────┐
+
+│ Install dependencies (npm) │
+└──────────┬─────────────────┘
+           │
+           ▼
+┌────────────────────────────┐
+│ Run automated tests         │
+└──────────┬─────────────────┘
+           │
+           ▼
+┌────────────────────────────┐
+│ (Optional) Deploy App       │
+└────────────────────────────┘
+
+
+Verified build results in the Actions tab.
