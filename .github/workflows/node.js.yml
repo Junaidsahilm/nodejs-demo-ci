@@ -27,10 +27,9 @@ jobs:
 
       - name: Build app
         run: npm run build
-        
+
       - name: Start app for test
         run: |
           npm start &
           sleep 5
           kill $!
-  
