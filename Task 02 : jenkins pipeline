@@ -1,0 +1,76 @@
+Objective:
+Deploy a Node.js web application on AWS EC2 using Docker, integrate with Jenkins for CI/CD, and make it accessible via a browser.
+
+Key Tools Used:
+AWS EC2 (t3.micro) – Hosting Jenkins & Docker
+Docker – App containerization
+Node.js – Sample app runtime
+Jenkins – CI/CD automation
+
+Outcome:
+Successfully created a CI/CD pipeline in Jenkins for a Node.js Docker project.
+Application is automatically built, tested, and deployed on AWS EC2.
+Accessible publicly via browser.
+
+
+~Steps Performed:
+->Project Setup
+
+Chose a Node.js sample application as the base.
+
+Created a Dockerfile to containerize the app.
+
+Ensured package.json and app code were present for build compatibility.
+
+Docker Build & Run
+
+Built Docker image locally using:
+
+
+docker build -t nodejs-app .
+Ran the container and exposed it on a port for browser access:
+
+
+docker run -d -p 3000:3000 nodejs-app
+AWS EC2 Configuration
+
+Used an Amazon Linux / Ubuntu t3.micro instance.
+
+Installed Docker & Node.js dependencies.
+
+Opened Security Group inbound rules for the app port (3000).
+
+->Jenkins Integration
+
+Installed Jenkins on EC2.
+
+Installed required plugins: Docker Pipeline, Git, NodeJS, etc.
+
+->Configured Jenkins with:
+
+GitHub Repository for source code.
+
+Docker Build & Push stages.
+
+Deployment Stage to run the container.
+
+Wrote a Jenkinsfile with stages:
+
+Checkout Code
+
+Build Docker Image
+
+Run Tests
+
+Deploy Container
+
+Testing & Deployment
+
+Triggered Jenkins pipeline on code push.
+
+Verified that the app was running on http://<EC2-Public-IP>:3000.
+
+
+
+
+GitHub – Source code management
